@@ -1,24 +1,34 @@
 public class SLList {
-    private IntNode first;
+
+    /** The first item if it exists is at sentinel.next */
+    private IntNode sentinel;
     private int size;
+    
+    /** Creates an empty list. */
+    public SLList() {
+        /** Any number is fine, doesn't have to be 0. */
+        sentinel = new IntNode(0, null);
+        size = 0;
+    }
 
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(0, null);
+        sentinel.next = new IntNode(x, null);
         size = 1;
     }
 
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel.next);
         size += 1;
     }
 
     public void addLast(int x) {
-        IntNode last = new IntNode(x, null);
-        IntNode p = first;
+        IntNode p = sentinel;
         while (p.next != null) {
             p = p.next;
         }
-        p.next = last;
+        p.next = new IntNode(x, null);
+        size += 1;
     }
     /** Helper function:
      * returns the size of the list that starts at IntNode p.
@@ -44,14 +54,18 @@ public class SLList {
         }
         return size;
     }
+
+    public int cachedSize() {
+        return size;
+    }
  
 
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     public static void main(String[] args) {
-        SLList L = new SLList(25);
+        SLList L = new SLList();
         L.addLast(10);
         L.addLast(5);
         L.addFirst(30);
@@ -61,6 +75,6 @@ public class SLList {
             System.out.println(cur.item);
             cur = cur.next;
         }
-        System.out.println(L.recursiveSize());
+        System.out.println(L.cachedSize());
     }
 }
