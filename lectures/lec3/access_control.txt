@@ -1,0 +1,5 @@
+private keyword: prevent code in other classes from using members or methods of a class
+nested class: move classes inside another class.
+private nested class: once you declare a nested class private, all its methods become private no matter how you declare them
+why nested class: make it clear that no other external classes should ever use the subordinate class
+static nested class: if the nested class never uses any instance variables or methods of its outer class => declare it static to save memory (minor effect, but still).

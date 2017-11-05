@@ -1,0 +1,22 @@
+GRoE
+
+Given variables b and a:
+b = a copies all the bits from a to b
+
+In java, always pass by value i.e. always copy the bits to a new scope
+
+8 primitive types
+1 reference type
+
+
+* Declaration of array: int[] a; (creates a 64 bit box to store the reference aka address of the array)
+No actual objects at this stage
+
+* Instantiating array: using new keyword: new int[]{0,1,2};
+Object is instantiated, but is anonymous because we haven't assigned a name
+
+* Decl, inst, assignment at the same time
+int[] a = new int[]{0,1,2};
+
+If we lose the address, we lose the object too because there's no way to retrieve it without knowing the address.
+The object will then be consumed by the garbage collector
